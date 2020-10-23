@@ -16,8 +16,7 @@ def apply_coupons(cart, coupons)
 
     binding.pry
   end
-end
-cart
+  cart
 end
 
 def apply_clearance(cart)
