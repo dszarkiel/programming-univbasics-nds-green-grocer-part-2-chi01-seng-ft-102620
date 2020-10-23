@@ -5,7 +5,7 @@ def apply_coupons(cart, coupons)
   coupons.each do |key|
   discount_item = find_item_by_name_in_collection(coupons[:item], cart)
   in_cart = !!discount_item
-  valid_coupon = in_cart && discount_item[:num] 
+  valid_coupon = in_cart && coupons[:num] <= discount_item[:count]
 
     binding.pry
   end
