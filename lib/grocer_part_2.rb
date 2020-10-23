@@ -3,11 +3,11 @@ require 'pry'
 def apply_coupons(cart, coupons)
   i = 0
   coupons.each do |coupon|
-  discount_item = find_item_by_name_in_collection(coupons[:item], cart)
+  discount_item = find_item_by_name_in_collection(coupon[:item], cart)
   in_cart = !!discount_item
   valid_coupon = in_cart && discount_item[:count] >= coupon[:num]
   if discount_item && valid_coupon
-    cart << { item: "#{coupons[:item]} W/ COUPON",
+    cart << { item: "#{discount_item[:item]} W/ COUPON",
     price:  coupon[:cost]/coupon[:num],
     clearance: discount_item[:clearance],
     count: coupon[:num]
