@@ -12,9 +12,9 @@ def apply_coupons(cart, coupons)
     clearance: discount_item[:clearance],
     count: coupon[:num]
     }
+    discount_item[:count] -= coupon[:num]
   end
-
-    binding.pry
+  i += 1
   end
   cart
 end
