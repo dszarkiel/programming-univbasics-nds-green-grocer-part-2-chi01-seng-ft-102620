@@ -20,8 +20,11 @@ def apply_coupons(cart, coupons)
 end
 
 def apply_clearance(cart)
-  cart.map do |key, value|
-    binding.pry
+  cart.map do |key|
+    if cart[:clearance] == true
+      cart[:price] *= 0.8
+    end
+    key
   end
 end
 
