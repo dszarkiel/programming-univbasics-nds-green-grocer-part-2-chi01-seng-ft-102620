@@ -6,9 +6,17 @@ def apply_coupons(cart, coupons)
   discount_item = find_item_by_name_in_collection(coupons[:item], cart)
   in_cart = !!discount_item
   valid_coupon = in_cart && coupons[:num] <= discount_item[:count]
+  if discount_item && valid_coupon
+    cart << { item: "#{coupons[:item]} W/ COUPON",
+    price:  coupon[:cost]/coupon[:num],
+    clearance: discount_item[:clearance],
+    count: coupon[:num]
+    }
+  end
 
     binding.pry
   end
+end
 end
 
 def apply_clearance(cart)
